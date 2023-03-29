@@ -2,24 +2,45 @@
 {% load crispy_forms_tags %}
 {% block title_block %} {{title}} {% endblock %}
 
-{% block css_block %}
-<style>
-    .signup {
-        width: 50%;
-        border: 1px solid #ccc;
-        padding: 30px;
-    }
-    .login {
-        width: 450px;
-        border: 1px solid #ccc;
-        padding: 20px;
-    }
-    
-</style>   
-{% endblock %}
 
 {% block body_block %}
-<center>
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+              
+                <div class="form-check d-flex justify-content mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'App_login:login'%}"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+            </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% comment %} <center>
     <div class="signup">
         <h3>Sign Up here </h3>
         <form method="POST">
@@ -32,5 +53,5 @@
     <div class="login">
         <p>Have an Account? <a href="#">Login</a></p>
     </div>
-</center>
+</center> {% endcomment %}
 {% endblock %}

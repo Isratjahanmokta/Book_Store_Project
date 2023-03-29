@@ -18,16 +18,19 @@
     <div class="container" style='padding-top:20px'>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <ul class="navbar-nav">
-            
-                <li class="nav-item ">
-                    <a class="nav-link" href="{% url 'Authentication:signup' %}">SIgn Up</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
+                {% comment %} {% if user.is_autheticated %} {% endcomment %}
                 <li class="nav-item ">
                     <a class="nav-link" href="{% url 'home' %}">Logout</a>
                 </li>
+                
+                {% comment %} {% else %} {% endcomment %}
+                <li class="nav-item ">
+                    <a class="nav-link" href="{% url 'App_login:signup' %}">SIgn Up</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{% url 'App_login:login' %}">Login</a>
+                </li>
+                {% comment %} {% endif %} {% endcomment %}
             </ul>
         </nav>
     </div>

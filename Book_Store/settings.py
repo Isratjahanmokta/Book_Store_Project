@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Authentication',
+    'App_login',
     'pages',
     'crispy_forms',
     'crispy_bootstrap5', 
@@ -115,10 +115,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+LOGIN_URL = '/accounts/login/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-AUTH_USER_MODEL = "Authentication.CustomUser"
+AUTH_USER_MODEL = "App_login.CustomUser"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
